@@ -1,0 +1,68 @@
+{
+    "width": 2,
+    "height": 3,
+    "students": [
+        {
+            "number": 1,
+            "name": "生徒 1",
+            "furigana": "せいと 1",
+            "sex": 0
+        },
+        {
+            "number": 2,
+            "name": "生徒 2",
+            "furigana": "せいと 2",
+            "sex": 1
+        },
+        {
+            "number": 3,
+            "name": "生徒 3",
+            "furigana": "せいと 3",
+            "sex": 0
+        },
+        {
+            "number": 4,
+            "name": "生徒 4",
+            "furigana": "せいと 4",
+            "sex": 1
+        },
+        {
+            "number": 5,
+            "name": "生徒 5",
+            "furigana": "せいと 5",
+            "sex": 0
+        },
+        {
+            "number": 6,
+            "name": "生徒 6",
+            "furigana": "せいと 6",
+            "sex": 1
+        }
+    ],
+    "seats": [
+        {
+            "number": 0,
+            "student": 4
+        },
+        {
+            "number": 1,
+            "student": 1
+        },
+        {
+            "number": 2,
+            "student": 5
+        },
+        {
+            "number": 3,
+            "student": 2
+        },
+        {
+            "number": 4,
+            "student": 6
+        },
+        {
+            "number": 5,
+            "student": 3
+        }
+    ]
+}

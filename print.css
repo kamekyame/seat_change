@@ -1,0 +1,33 @@
+@page {
+    size: A4 landscape;
+    margin: 10mm;
+}
+
+header,
+footer,
+#buttons,
+#filename,
+#function {
+    display: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#seat table {
+    margin: 0 auto;
+    table-layout: fixed;
+    width: 100%;
+}
+
+#seat td,
+#seat th {
+    padding: 0.2em;
+    empty-cells: hide;
+}

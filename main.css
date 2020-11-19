@@ -1,0 +1,257 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+:root {
+    --theme-color: greenyellow;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    font-size: 1.1em;
+    padding: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+footer {
+    background-color: var(--theme-color);
+    margin-top: auto;
+    height: 5em;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20%;
+    text-align: left;
+    justify-content: center;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:link,
+footer a:visited,
+footer a:hover,
+footer a:active {
+    color: black;
+}
+
+footer #copyright {
+    margin-top: 1em;
+    font-size: 0.8em;
+    color: black;
+}
+
+main {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+header,
+#buttons,
+#filename {
+    width: 100%;
+    background-color: var(--theme-color);
+    color: black;
+    flex-basis: 100%;
+    box-sizing: border-box;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+
+#student-file,
+#seat-change,
+#seat-download,
+#change-dir {
+    display: flexbox;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+}
+
+#student-file {
+    background:
+        linear-gradient(-45deg, transparent 1em, #ed576c 1em),
+        linear-gradient(225deg, transparent 1em, #ed576c 1em);
+    background-position: bottom left, top left;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    padding-right: 2em;
+    display: flex;
+}
+
+#student-file:hover,
+#seat-change:hover {
+    color: black;
+    background:
+        linear-gradient(-45deg, transparent 1em, yellow 1em),
+        linear-gradient(225deg, transparent 1em, yellow 1em);
+    background-position: bottom left, top left;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+}
+
+#student-file input {
+    display: none;
+}
+
+#seat-change {
+    background:
+        linear-gradient(-45deg, transparent 1em, royalblue 1em),
+        linear-gradient(225deg, transparent 1em, royalblue 1em);
+    background-position: bottom left, top left;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    padding-right: 2em;
+}
+
+#seat-change:focus {
+    border: none;
+    outline: none;
+}
+
+#seat-download {
+    background-color: #ff9500;
+}
+
+#seat-download:hover {
+    background-color: yellow;
+    color: black;
+}
+
+#seat-download:focus {
+    border: none;
+    outline: none;
+}
+
+#filename {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
+}
+
+#filename input {
+    border: 0;
+    text-align: right;
+    height: 1.5em;
+}
+
+#change-dir {
+    margin-left: 1em;
+    background-color: #00adfd;
+}
+
+#seat table {
+    margin: 0 auto;
+    border-spacing: 30px;
+    table-layout: fixed;
+    width: 90%;
+}
+
+#seat td,
+#seat th {
+    border: 3px solid black;
+    padding: 0.5em;
+    transform: rotate(0deg);
+}
+
+#seat td:hover {
+    background-color: yellow;
+}
+
+#seat td:empty {
+    background-image: linear-gradient(to top right,
+            transparent, transparent 49%,
+            black 49%, black 51%,
+            transparent 51%, transparent);
+}
+
+#seat .number {
+    font-size: 0.8em;
+}
+
+#seat .name {
+    display: inline-block;
+}
+
+#seat .furigana {
+    display: block;
+    font-size: 0.6em;
+    text-align: center;
+    margin-top: 0.1em;
+}
+
+#seat .name span {
+    position: relative;
+}
+
+#seat .name select {
+    border: none;
+    appearance: none;
+    margin-top: 0.1em;
+    background-color: transparent;
+    color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#seat .name select:focus {
+    border: none;
+    outline: none;
+}
+
+#seat .name:hover {
+    font-weight: bold;
+}
+
+#seat .name option {
+    color: black;
+}
+
+#seat .static {
+    background-color: gainsboro;
+}
+
+.female {
+    color: red;
+}
+
+#function {
+    width: 90%;
+    text-align: left;
+}
+
+#function span {
+    font-size: 1.2em;
+}

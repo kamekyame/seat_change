@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="print.css" media="print">
+        <title>席替え</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>席替え</h1>
+        </header>
+        <main>
+            <div id="buttons">
+                <label id="student-file">ファイルアップロード
+                    <input type="file" accept=".json">
+                </label>
+                <button id="seat-change">席替え！</button>
+                <button id="seat-download">ファイルダウンロード</button>
+                <button id="change-dir">生徒用⇔先生用</button>
+            </div>
+            <div id="filename">
+                <label>
+                    <input type="text">
+                    .json
+                </label>
+            </div>
+            <div id="seat">
+                <table>
+                    <tr>
+                        <th style="empty-cells: hide;" :style='{"transform":"rotate(" + (dir? 0:180) + "deg)"}'
+                            v-for="w in widthIndex()" v-if="w < width / 2"
+                            :colspan="width % 2 === 0 && w === width / 2 - 1 ? 2 : 1">
+                            <span v-if="w === Math.ceil(width / 2) - 1" class="teacher">教卓</span>
+                        </th>
+                    </tr>
+                    <tr v-for="h in heightIndex()">
+                        <td v-for="w in widthIndex()" v-on:click="changeStatic(w,h)"
+                            :class='{"static":getSeat(getIndex(w,h))?.isStatic}'
+                            :style='{"transform":"rotate(" + (dir? 0:180) + "deg)"}'>
+                            <span v-if="getSeat(getIndex(w,h))?.student"
+                                :class='{"female":(getStudent(getSeat(getIndex(w,h))?.student)?.sex===1)}'>
+                                <span class="number">{{getSeat(getIndex(w,h))?.student}}
+                                    <span
+                                        v-if="getStudent(getSeat(getIndex(w,h))?.student)?.position">・{{getStudent(getSeat(getIndex(w,h))?.student)?.position}}
+                                    </span>
+                                </span>
+                                <span class="furigana">{{getStudent(getSeat(getIndex(w,h))?.student)?.furigana}}</span>
+                                <div class="name" v-on:click.stop="nameClick(getSeat(getIndex(w,h))?.number)">
+                                    <span>{{getStudent(getSeat(getIndex(w,h))?.student)?.name}}
+                                        <select
+                                            :style='{"width":getStudent(getSeat(getIndex(w,h))?.student)?.name.length-0.7+"em"}'
+                                            v-on:click.stop
+                                            v-on:change="changeStudent($event.target.value,getSeat(getIndex(w,h))?.student)"
+                                            :id="'name-' + getSeat(getIndex(w,h))?.number">
+                                            <option v-for="student in getStudents()" :value="student.number"
+                                                :selected="getStudent(getSeat(getIndex(w,h))?.student)?.number === student.number">
+                                                {{student.name}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="function">
+                <span>機能</span>
+                <ul>
+                    <li>座席をクリックすると固定・固定解除出来ます。（固定されているとグレーになり、「席替え！」しても席が変わりません。）</li>
+                    <li>名前をクリックすると座席を手動で変更することが出来ます。</li>
+                    <li>右上の「生徒用⇔先生用」をクリックすると文字を反対にすることが出来ます。</li>
+                    <li>印刷は座席表の部分のみプリントされます。印刷プレビューにて1枚に収まらない場合は倍率を変更すると収まる可能性があります。</li>
+                </ul>
+            </div>
+        </main>
+        <footer>
+            <a id="github" href="">Github sorce</a>
+            <!--TODO:link update-->
+            <span id="copyright">©2020 SuzuTomo</span>
+        </footer>
+        <script type="module" src="main.js"></script>
+    </body>
+
+</html>
